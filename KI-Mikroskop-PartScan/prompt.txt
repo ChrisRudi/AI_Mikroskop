@@ -1,119 +1,874 @@
-/* Version: 1.3.0 */
-/* Version: 2.0.0 - JEDEC JEP95 Format */
+/* Version: 3.0.0 - Enhanced Quality Edition */
+/* JEDEC JEP95 Format mit E-Reihen und Industrie-Standards */
+
 **ELEKTRONIKBAUTEIL-ANALYSE PROMPT**
 
+═══════════════════════════════════════════════════════════════════════════════
 **AUFGABE**
-Analysiere das bereitgestellte Bild eines elektronischen Bauteils und erstelle ein vollständiges technisches Datenblatt basierend auf den erkennbaren Merkmalen. Identifiziere das Bauteil, seine Funktionen und technischen Eigenschaften so genau wie möglich. Verwende JEDEC JEP95-konforme Formatierung für professionelle Darstellung.
+═══════════════════════════════════════════════════════════════════════════════
 
-**AUSGABEFORMAT**
+Analysiere das bereitgestellte Bild eines elektronischen Bauteils und erstelle ein vollständiges technisches Datenblatt. Verwende JEDEC JEP95-konforme Formatierung und beachte alle relevanten Industrie-Standards (E-Reihen, SMD-Codes, Farbcodes).
+
+═══════════════════════════════════════════════════════════════════════════════
+**SCHRITT 1: BILDQUALITÄTS-PRÜFUNG** (ZUERST AUSFÜHREN)
+═══════════════════════════════════════════════════════════════════════════════
+
+Bevor du das Datenblatt erstellst, prüfe:
+
+| Kriterium | Status |
+|-----------|--------|
+| Bauteil vollständig sichtbar? | ✓/✗ |
+| Beschriftungen lesbar? | ✓/✗ |
+| Auflösung ausreichend? | ✓/✗ |
+| Beleuchtung gleichmäßig? | ✓/✗ |
+
+**Bei unzureichender Qualität:** Beginne mit ⚠️ BILDQUALITÄTS-WARNUNG und beschreibe fehlende Informationen.
+
+═══════════════════════════════════════════════════════════════════════════════
+**SCHRITT 2: SYSTEMATISCHE INFORMATIONSEXTRAKTION**
+═══════════════════════════════════════════════════════════════════════════════
+
+**A) PRIMÄRE IDENTIFIKATION:**
+- Lese ALLE Beschriftungen exakt ab
+- Notiere: Zeile 1: "___", Zeile 2: "___", Zeile 3: "___"
+- Identifiziere Hersteller-Logos
+- Erkenne Datumscodes (YYWW Format)
+
+**B) KLASSIFIKATION:**
+- Aktiv (Halbleiter) oder Passiv (R/L/C)
+- Gehäusetyp nach Standard
+- Pinanzahl zählen
+
+**C) WERT-DEKODIERUNG:**
+- Bei Widerständen: Farbcode oder SMD-Code
+- Bei Kondensatoren: Kapazitätscode
+- Bei ICs: Typennummer analysieren
+
+**D) VALIDIERUNG:**
+- Passen Werte zur E-Reihe?
+- Sind Spezifikationen plausibel?
+- Stimmt Package mit Pinanzahl überein?
+
+═══════════════════════════════════════════════════════════════════════════════
+**KONFIDENZ-SYSTEM**
+═══════════════════════════════════════════════════════════════════════════════
+
+Markiere jeden Wert mit Konfidenz-Indikator:
+
+| Symbol | Bedeutung | Beispiel |
+|--------|-----------|----------|
+| (keine) | Sicher erkannt | 100Ω |
+| [~] | Geschätzt/typisch | [~]100µF |
+| [?] | Unsicher/vermutet | [?]Samsung |
+| N/A | Nicht erkennbar | N/A |
+
+**Gesamtkonfidenz am Ende:** ■■■■□ (4/5) oder ■■□□□ (2/5)
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: E-REIHEN (IEC 60063)**
+═══════════════════════════════════════════════════════════════════════════════
+
+**E12 (±10% Toleranz) - Häufigste Werte:**
+1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
+
+**E24 (±5% Toleranz):**
+1.0, 1.1, 1.2, 1.3, 1.5, 1.6, 1.8, 2.0, 2.2, 2.4, 2.7, 3.0,
+3.3, 3.6, 3.9, 4.3, 4.7, 5.1, 5.6, 6.2, 6.8, 7.5, 8.2, 9.1
+
+**E96 (±1% Toleranz) - Präzision:**
+1.00, 1.02, 1.05, 1.07, 1.10, 1.13, 1.15, 1.18, 1.21, 1.24, 1.27, 1.30,
+1.33, 1.37, 1.40, 1.43, 1.47, 1.50, 1.54, 1.58, 1.62, 1.65, 1.69, 1.74,
+1.78, 1.82, 1.87, 1.91, 1.96, 2.00, 2.05, 2.10, 2.15, 2.21, 2.26, 2.32,
+2.37, 2.43, 2.49, 2.55, 2.61, 2.67, 2.74, 2.80, 2.87, 2.94, 3.01, 3.09,
+3.16, 3.24, 3.32, 3.40, 3.48, 3.57, 3.65, 3.74, 3.83, 3.92, 4.02, 4.12,
+4.22, 4.32, 4.42, 4.53, 4.64, 4.75, 4.87, 4.99, 5.11, 5.23, 5.36, 5.49,
+5.62, 5.76, 5.90, 6.04, 6.19, 6.34, 6.49, 6.65, 6.81, 6.98, 7.15, 7.32,
+7.50, 7.68, 7.87, 8.06, 8.25, 8.45, 8.66, 8.87, 9.09, 9.31, 9.53, 9.76
+
+**Multiplikatoren:** ×1, ×10, ×100, ×1k, ×10k, ×100k, ×1M
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: WIDERSTANDS-FARBCODE (IEC 60062)**
+═══════════════════════════════════════════════════════════════════════════════
+
+| Farbe | Ziffer | Multiplikator | Toleranz |
+|-------|--------|---------------|----------|
+| Schwarz | 0 | ×1Ω | - |
+| Braun | 1 | ×10Ω | ±1% (F) |
+| Rot | 2 | ×100Ω | ±2% (G) |
+| Orange | 3 | ×1kΩ | ±0.05% |
+| Gelb | 4 | ×10kΩ | ±0.02% |
+| Grün | 5 | ×100kΩ | ±0.5% (D) |
+| Blau | 6 | ×1MΩ | ±0.25% (C) |
+| Violett | 7 | ×10MΩ | ±0.1% (B) |
+| Grau | 8 | ×100MΩ | ±0.01% |
+| Weiß | 9 | ×1GΩ | - |
+| Gold | - | ×0.1Ω | ±5% (J) |
+| Silber | - | ×0.01Ω | ±10% (K) |
+
+**4-Ring:** Ziffer-Ziffer-Multiplikator-Toleranz
+**5-Ring:** Ziffer-Ziffer-Ziffer-Multiplikator-Toleranz
+**6-Ring:** +Temperaturkoeffizient
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: SMD-WIDERSTANDS-CODES**
+═══════════════════════════════════════════════════════════════════════════════
+
+**3-stelliger Code (E24, ±5%):**
+- Erste zwei Ziffern = Wert
+- Dritte Ziffer = Anzahl Nullen
+- Beispiel: 472 = 4700Ω = 4.7kΩ
+
+**4-stelliger Code (E96, ±1%):**
+- Erste drei Ziffern = Wert
+- Vierte Ziffer = Anzahl Nullen
+- Beispiel: 4702 = 47000Ω = 47kΩ
+
+**EIA-96 Code (±1%):**
+- Zwei Ziffern + Buchstabe
+- Ziffern = E96-Index (01-96)
+- Buchstabe = Multiplikator
+
+| Code | Multiplikator |
+|------|---------------|
+| Z | 0.001 |
+| Y/R | 0.01 |
+| X/S | 0.1 |
+| A | 1 |
+| B/H | 10 |
+| C | 100 |
+| D | 1000 |
+| E | 10000 |
+| F | 100000 |
+
+Beispiel: 01A = 100Ω, 68C = 49.9kΩ
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: KONDENSATOR-CODES**
+═══════════════════════════════════════════════════════════════════════════════
+
+**Keramik/Film (3-stellig in pF):**
+- Erste zwei Ziffern = Wert
+- Dritte Ziffer = Anzahl Nullen
+- Beispiel: 104 = 10×10⁴ pF = 100nF
+
+| Code | Wert |
+|------|------|
+| 100 | 10pF |
+| 101 | 100pF |
+| 102 | 1nF |
+| 103 | 10nF |
+| 104 | 100nF |
+| 105 | 1µF |
+| 106 | 10µF |
+
+**Toleranz-Codes:**
+| Code | Toleranz |
+|------|----------|
+| B | ±0.1pF |
+| C | ±0.25pF |
+| D | ±0.5pF |
+| F | ±1% |
+| G | ±2% |
+| J | ±5% |
+| K | ±10% |
+| M | ±20% |
+| Z | +80%/-20% |
+
+**Spannungs-Codes (Elektrolyt):**
+| Code | Spannung |
+|------|----------|
+| 0J | 6.3V |
+| 1A | 10V |
+| 1C | 16V |
+| 1E | 25V |
+| 1H | 50V |
+| 1J | 63V |
+| 2A | 100V |
+| 2D | 200V |
+| 2E | 250V |
+| 2G | 400V |
+| 2J | 630V |
+
+**Dielektrikum-Typen (Keramik):**
+| Typ | Temp-Bereich | Toleranz | Anwendung |
+|-----|--------------|----------|-----------|
+| C0G/NP0 | -55 bis +125°C | ±30ppm/°C | Präzision, HF |
+| X7R | -55 bis +125°C | ±15% | Allgemein |
+| X5R | -55 bis +85°C | ±15% | Kompakt |
+| Y5V | -30 bis +85°C | +22%/-82% | Pufferung |
+| Z5U | +10 bis +85°C | +22%/-56% | Kopplung |
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: SMD-GEHÄUSEGRÖSSEN (METRISCH/IMPERIAL)**
+═══════════════════════════════════════════════════════════════════════════════
+
+| Imperial | Metrisch | L×B (mm) | Leistung (typ.) |
+|----------|----------|----------|-----------------|
+| 0201 | 0603 | 0.6×0.3 | 1/20W |
+| 0402 | 1005 | 1.0×0.5 | 1/16W |
+| 0603 | 1608 | 1.6×0.8 | 1/10W |
+| 0805 | 2012 | 2.0×1.25 | 1/8W |
+| 1206 | 3216 | 3.2×1.6 | 1/4W |
+| 1210 | 3225 | 3.2×2.5 | 1/2W |
+| 1812 | 4532 | 4.5×3.2 | 1W |
+| 2010 | 5025 | 5.0×2.5 | 3/4W |
+| 2512 | 6332 | 6.3×3.2 | 1W |
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: HALBLEITER-GEHÄUSE (JEDEC/EIAJ)**
+═══════════════════════════════════════════════════════════════════════════════
+
+**Through-Hole:**
+| Bezeichnung | Pins | Anwendung |
+|-------------|------|-----------|
+| TO-92 | 3 | Kleinsignal-Transistoren |
+| TO-126 | 3 | Mittlere Leistung |
+| TO-220 | 3-5 | Leistungshalbleiter |
+| TO-247 | 3 | Hohe Leistung |
+| TO-3 | 2-3 | Sehr hohe Leistung |
+| DIP-8 | 8 | Standard-ICs |
+| DIP-14 | 14 | Logik-ICs |
+| DIP-16 | 16 | Logik-ICs |
+| DIP-28 | 28 | Mikrocontroller |
+| DIP-40 | 40 | Mikrocontroller |
+
+**Surface Mount:**
+| Bezeichnung | Pins | Pitch | Anwendung |
+|-------------|------|-------|-----------|
+| SOT-23 | 3-6 | 0.95mm | Kleinsignal |
+| SOT-223 | 4 | 2.3mm | Mittlere Leistung |
+| SOT-89 | 3 | 1.5mm | Mittlere Leistung |
+| SOIC-8 | 8 | 1.27mm | Standard-SMD-ICs |
+| SOIC-14 | 14 | 1.27mm | Logik-ICs |
+| SOIC-16 | 16 | 1.27mm | Logik-ICs |
+| SSOP-20 | 20 | 0.65mm | Kompakte ICs |
+| TSSOP-14 | 14 | 0.65mm | Kompakte ICs |
+| QFP-44 | 44 | 0.8mm | Mikrocontroller |
+| QFP-64 | 64 | 0.5mm | Mikrocontroller |
+| QFN-32 | 32 | 0.5mm | Kompakte MCUs |
+| BGA | var. | var. | Hochintegriert |
+
+**Leistungs-SMD:**
+| Bezeichnung | Anwendung |
+|-------------|-----------|
+| D-PAK (TO-252) | MOSFETs, Regler |
+| D2-PAK (TO-263) | Leistungs-MOSFETs |
+| DPAK-3 | Spannungsregler |
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: TRANSISTOR-BEZEICHNUNGEN**
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pro Electron (Europa):**
+- 1. Buchstabe: Material (A=Ge, B=Si, C=GaAs)
+- 2. Buchstabe: Typ (C=NF-Kleinleistung, D=NF-Leistung, F=HF-Kleinleistung, etc.)
+- Beispiele: BC547 (Si NPN NF), BD139 (Si NPN Leistung), BF245 (Si FET HF)
+
+**JEDEC (Amerika):**
+- Format: 2N + Nummer
+- Beispiele: 2N2222 (NPN), 2N3055 (Leistung), 2N7000 (MOSFET)
+
+**JIS (Japan):**
+- Format: 2S + Buchstabe + Nummer
+- Beispiele: 2SC1815 (NPN), 2SA1015 (PNP), 2SK30 (JFET)
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: IC-FAMILIEN**
+═══════════════════════════════════════════════════════════════════════════════
+
+**74xx Logik-Serien:**
+| Präfix | Technologie | VCC | Geschwindigkeit |
+|--------|-------------|-----|-----------------|
+| 74 | Standard TTL | 5V | Mittel |
+| 74LS | Low-Power Schottky | 5V | Mittel |
+| 74HC | High-Speed CMOS | 2-6V | Hoch |
+| 74HCT | HC mit TTL-Pegel | 5V | Hoch |
+| 74AC | Advanced CMOS | 2-6V | Sehr hoch |
+| 74LVC | Low-Voltage CMOS | 1.65-3.6V | Sehr hoch |
+| 74AHC | Advanced HC | 2-5.5V | Ultra-hoch |
+
+**4xxx CMOS-Serie:**
+- Betriebsspannung: 3-18V
+- Beispiele: 4011 (NAND), 4017 (Zähler), 4051 (Multiplexer)
+
+**Operationsverstärker:**
+| Serie | Eigenschaften |
+|-------|---------------|
+| LM741 | Standard, Single |
+| LM324 | Quad, Single-Supply |
+| TL072 | JFET, Low-Noise |
+| NE5532 | Audio, Low-Noise |
+| LM358 | Dual, Single-Supply |
+| OPA2134 | Audio, High-End |
+
+**Spannungsregler:**
+| Serie | Typ | Ausgangsspannung |
+|-------|-----|------------------|
+| 78xx | Positiv fest | 5V, 9V, 12V, 15V |
+| 79xx | Negativ fest | -5V, -12V, -15V |
+| LM317 | Positiv einstellbar | 1.25-37V |
+| LM337 | Negativ einstellbar | -1.25 bis -37V |
+| LM7805 | 5V 1A | 5V |
+| LM1117 | LDO | 1.8V, 2.5V, 3.3V, 5V |
+
+═══════════════════════════════════════════════════════════════════════════════
+**REFERENZ: STANDARDISIERTE SYMBOLE**
+═══════════════════════════════════════════════════════════════════════════════
+
+**Spannungen:**
+| Symbol | Bedeutung |
+|--------|-----------|
+| VCC/VDD | Positive Versorgung |
+| VEE/VSS | Negative Versorgung/Masse |
+| VIN | Eingangsspannung |
+| VOUT | Ausgangsspannung |
+| VF | Flussspannung (Diode) |
+| VBR | Durchbruchspannung |
+| VGS | Gate-Source-Spannung |
+| VDS | Drain-Source-Spannung |
+| VCE | Kollektor-Emitter-Spannung |
+| VBE | Basis-Emitter-Spannung |
+
+**Ströme:**
+| Symbol | Bedeutung |
+|--------|-----------|
+| ICC/IDD | Versorgungsstrom |
+| IIN | Eingangsstrom |
+| IOUT | Ausgangsstrom |
+| IF | Flussstrom |
+| IR | Sperrstrom |
+| ID | Drain-Strom |
+| IC | Kollektorstrom |
+| IB | Basisstrom |
+
+**Temperaturen:**
+| Symbol | Bedeutung |
+|--------|-----------|
+| TA | Umgebungstemperatur |
+| TJ | Junction-/Sperrschichttemperatur |
+| TC | Gehäusetemperatur |
+| TSTG | Lagertemperatur |
+| TOPR | Betriebstemperatur |
+
+**Sonstige:**
+| Symbol | Bedeutung |
+|--------|-----------|
+| PD | Verlustleistung |
+| RθJA | Wärmewiderstand Junction-Ambient |
+| RθJC | Wärmewiderstand Junction-Case |
+| tPD | Verzögerungszeit |
+| tR/tF | Anstiegs-/Abfallzeit |
+| hFE | Stromverstärkung (Transistor) |
+| gm | Steilheit (FET) |
+| RDS(on) | Einschaltwiderstand (MOSFET) |
+
+═══════════════════════════════════════════════════════════════════════════════
+**AUSGABEFORMAT - TECHNISCHES DATENBLATT**
+═══════════════════════════════════════════════════════════════════════════════
 
 ---
 
 **TECHNICAL DATASHEET: [BAUTEILNAME]**
-
-**DEVICE DESCRIPTION**
-- **Part Number:** [Im Bild erkennbare Typnummer]
-- **Device Category:** [IC/Widerstand/Diode/Transistor/Kondensator/LED/Halbleiter/etc.]
-- **Function:** [Spezifische Funktion basierend auf Bauteiltyp]
-- **Package Type:** [Erkennbarer Gehäusetyp, z.B. DIP, SMD, TO-220, SOT-23, etc.]
-- **Technology:** [Relevant bei Halbleitern: Bipolar/CMOS/etc.]
-- **Manufacturer:** [Falls erkennbar]
-
-**FEATURES**
-* [Hauptmerkmal 1 des identifizierten Bauteils]
-* [Hauptmerkmal 2]
-* [Hauptmerkmal 3]
-
-**APPLICATIONS**
-* [Typische Anwendung 1 für diesen Bauteiltyp]
-* [Typische Anwendung 2 für diesen Bauteiltyp]
-* [Typische Anwendung 3]
-
-**ABSOLUTE MAXIMUM RATINGS** *(Ta = 25°C unless otherwise noted)*
-
-| Parameter | Symbol | Rating | Unit |
-|-----------|--------|--------|------|
-| Betriebsspannung | VOP | [Standard-/Typische Werte] | V |
-| Betriebstemperatur | TA | [Standard-/Typische Werte] | °C |
-| [Spezifische Parameter je Bauteiltyp] | [Symbol] | [Wert] | [Einheit] |
-| [Weitere Parameter] | [Symbol] | [Wert] | [Einheit] |
-
-**OPERATING CONDITIONS**
-
-| Parameter | Symbol | Min | Typ | Max | Unit |
-|-----------|--------|-----|-----|-----|------|
-| Operating Temperature | TA | [Min] | 25 | [Max] | °C |
-| [Weitere Betriebsbedingungen] | [Symbol] | [Min] | [Typ] | [Max] | [Unit] |
-
-**ELECTRICAL CHARACTERISTICS** *(Ta = 25°C unless otherwise noted)*
-
-| Parameter | Symbol | Test Conditions | Min | Typ | Max | Unit |
-|-----------|--------|----------------|-----|-----|-----|------|
-| [Parameter 1 basierend auf Bauteiltyp] | [Symbol] | [Testbedingung] | [Min] | [Typ] | [Max] | [Einheit] |
-| [Parameter 2 basierend auf Bauteiltyp] | [Symbol] | [Testbedingung] | [Min] | [Typ] | [Max] | [Einheit] |
-| [Parameter 3 basierend auf Bauteiltyp] | [Symbol] | [Testbedingung] | [Min] | [Typ] | [Max] | [Einheit] |
-
-**FUNCTIONAL DESCRIPTION**
-[Präzise Beschreibung der Hauptfunktion des identifizierten Bauteils in 2-3 Sätzen]
-
-**PIN CONFIGURATION**
-```
-[ASCII-Darstellung des Gehäuses mit Pin-Nummerierung]
-[Alle erkennbaren Pins durchnummeriert (im Uhrzeigersinn ab Markierung)]
-[Kerbe bei Pin 1 wenn ein IC]
-[Polaritätsmarkierungen (wo zutreffend)]
-```
-
-**PIN DESCRIPTION**
-[Bei ICs und Mehranschluss-Bauteilen: Pin-Nummer, Symbol und Funktion für jeden Pin]
-
-| Pin | Symbol | Function |
-|-----|--------|----------|
-| 1 | [Symbol] | [Funktion] |
-| 2 | [Symbol] | [Funktion] |
-| ... | ... | ... |
-
-**PACKAGE INFORMATION**
-- **Package Type:** [JEDEC-Bezeichnung falls zutreffend]
-- **Lead Count:** [Anzahl Anschlüsse]
-- **Package Dimensions:** [Soweit erkennbar]
-- **Mounting:** [Through-hole/Surface-mount]
-
-**CIRCUIT SYMBOL**
-```
-[Standardisiertes Schaltzeichen für den identifizierten Bauteiltyp]
-```
-
-**IDENTIFICATION FEATURES**
-* [Beschreibe alle im Bild erkennbaren Markierungen]
-* [Farbcodierung (bei passiven Bauteilen wie Widerständen)]
-* [Orientierungsmarkierungen (Kerben, Punkte, etc.)]
-* [Gehäuseform und -größe]
-* [Sonstige eindeutige Merkmale]
-
-**APPLICATION NOTES**
-* [Typische Handhabungs- oder Montageanweisungen für diesen Bauteiltyp]
-* [ESD-Empfindlichkeit, falls zutreffend]
-* [Besondere Vorsichtsmaßnahmen, falls zutreffend]
-* [Empfohlene Betriebspunkte]
-
-**QUALITY & RELIABILITY**
-- **ESD Rating:** [Falls relevant für Halbleiter]
-- **Operating Life:** [Typische Lebensdauer]
-- **Storage Conditions:** [Lagerungshinweise]
-
-**ORDERING INFORMATION**
-
-| Part Number | Package | Marking | Temp Range | Description |
-|-------------|---------|---------|------------|-------------|
-| [Vollständige Bezeichnung] | [Package] | [Marking] | [Bereich] | [Beschreibung] |
+*Generated by AI Mikroskop PartScan v3.0*
 
 ---
 
-**ANALYSEANWEISUNGEN:**
-- Identifiziere Bauteiltyp anhand aller visuellen Merkmale
-- Verwende bauteilspezifische Parameter (Widerstand: Watt/Ohm, Kondensator: Farad/Volt, IC: Logikpegel etc.)
-- Beachte Gehäusestandards (JEDEC für Halbleiter, IEC für passive Bauteile)
-- Berücksichtige Farbcodes bei passiven Bauteilen
-- Stelle alle im Bild erkennbaren Informationen strukturiert dar
-- Passe Parametertypen an identifiziertes Bauteil an
+**BILDANALYSE-ERGEBNIS**
+
+| Prüfpunkt | Status | Anmerkung |
+|-----------|--------|-----------|
+| Bildqualität | [✓/⚠️/✗] | [Beschreibung] |
+| Beschriftung lesbar | [✓/⚠️/✗] | [Details] |
+| Bauteil identifiziert | [✓/⚠️/✗] | [Konfidenz] |
+
+**Erkannte Beschriftungen:**
+- Zeile 1: "[Exakter Text]"
+- Zeile 2: "[Exakter Text]"
+- Zeile 3: "[Exakter Text]"
+- Logo/Marke: "[Beschreibung]"
+
+---
+
+**DEVICE DESCRIPTION**
+
+| Parameter | Wert | Konfidenz |
+|-----------|------|-----------|
+| Part Number | [Typnummer] | [■■■■□] |
+| Device Category | [IC/Widerstand/Diode/Transistor/Kondensator/LED/etc.] | |
+| Function | [Spezifische Funktion] | |
+| Package Type | [JEDEC-Bezeichnung, z.B. TO-220, SOIC-8] | |
+| Technology | [Bipolar/CMOS/JFET/etc.] | |
+| Manufacturer | [Hersteller oder N/A] | |
+| Date Code | [YYWW oder N/A] | |
+
+---
+
+**FEATURES**
+* [Hauptmerkmal 1 - spezifisch für identifiziertes Bauteil]
+* [Hauptmerkmal 2]
+* [Hauptmerkmal 3]
+* [Hauptmerkmal 4]
+
+---
+
+**APPLICATIONS**
+* [Typische Anwendung 1]
+* [Typische Anwendung 2]
+* [Typische Anwendung 3]
+
+---
+
+**ABSOLUTE MAXIMUM RATINGS** *(TA = 25°C unless otherwise noted)*
+
+| Parameter | Symbol | Rating | Unit |
+|-----------|--------|--------|------|
+| [Bauteilspezifischer Parameter 1] | [Symbol] | [Wert] | [Einheit] |
+| [Bauteilspezifischer Parameter 2] | [Symbol] | [Wert] | [Einheit] |
+| Operating Temperature | TOPR | -40 bis +85 [~] | °C |
+| Storage Temperature | TSTG | -65 bis +150 [~] | °C |
+
+---
+
+**BAUTEILSPEZIFISCHE PARAMETER**
+
+███ FÜR WIDERSTÄNDE ███
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
+
+| Parameter | Symbol | Value | Unit | Konfidenz |
+|-----------|--------|-------|------|-----------|
+| Resistance | R | [Wert aus E-Reihe] | Ω/kΩ/MΩ | |
+| Tolerance | - | [±1%/±5%/±10%] | % | |
+| Power Rating | PD | [1/8W, 1/4W, 1/2W, 1W, etc.] | W | |
+| Temperature Coefficient | TCR | [~]±100 | ppm/°C | |
+| Max Working Voltage | VMAX | [~]200 | V | |
+| Noise | - | [~]<1 | µV/V | |
+
+**Wert-Dekodierung:**
+- Farbcode: [Farbe1]-[Farbe2]-[Farbe3]-[Farbe4]
+- SMD-Code: [Code]
+- Berechnung: [Rechnung] = [Ergebnis]
+- E-Reihe: E[12/24/96] bestätigt ✓
+
+---
+
+███ FÜR KONDENSATOREN ███
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|-----------|--------|-----|-----|-----|------|
+| Capacitance | C | [Min] | [Typ] | [Max] | pF/nF/µF |
+| Tolerance | - | - | [±5%/±10%/±20%] | - | % |
+| Rated Voltage | VRATED | - | - | [Max] | V |
+| ESR | ESR | - | [~][Typ] | [Max] | mΩ |
+| Dissipation Factor | tan δ | - | - | [~][Max] | % |
+| Leakage Current | IL | - | - | [~][Max] | µA |
+| Temperature Range | - | [Min] | - | [Max] | °C |
+| Dielectric Type | - | [NP0/X7R/X5R/Y5V] | - | - | - |
+
+**Wert-Dekodierung:**
+- Kapazitätscode: [Code] = [Wert]
+- Spannungscode: [Code] = [Spannung]
+- E-Reihe: E[12/24] bestätigt ✓
+
+---
+
+███ FÜR DIODEN ███
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
+
+| Parameter | Symbol | Test Condition | Min | Typ | Max | Unit |
+|-----------|--------|----------------|-----|-----|-----|------|
+| Forward Voltage | VF | IF = [x]mA | - | [Typ] | [Max] | V |
+| Reverse Current | IR | VR = [x]V | - | - | [Max] | µA |
+| Breakdown Voltage | VBR | IR = [x]µA | [Min] | - | - | V |
+| Capacitance | CJ | VR = [x]V | - | [~][Typ] | - | pF |
+| Reverse Recovery Time | trr | IF = [x]mA | - | [~][Typ] | - | ns |
+
+**Diodentyp-spezifisch:**
+- Gleichrichter: PIV, IF(AV), IFSM
+- Zener: VZ, IZT, ZZ
+- Schottky: VF (niedrig), trr (schnell)
+- LED: VF, IF, λ (Wellenlänge), IV (Lichtstärke)
+
+---
+
+███ FÜR TRANSISTOREN (BJT) ███
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
+
+| Parameter | Symbol | Test Condition | Min | Typ | Max | Unit |
+|-----------|--------|----------------|-----|-----|-----|------|
+| Collector-Emitter Voltage | VCEO | IC = [x]mA | - | - | [Max] | V |
+| Collector-Base Voltage | VCBO | IC = [x]µA | - | - | [Max] | V |
+| Emitter-Base Voltage | VEBO | IE = [x]µA | - | - | [Max] | V |
+| Collector Current | IC | - | - | - | [Max] | mA/A |
+| DC Current Gain | hFE | IC = [x]mA, VCE = [x]V | [Min] | [~][Typ] | [Max] | - |
+| Transition Frequency | fT | IC = [x]mA, VCE = [x]V | - | [~][Typ] | - | MHz |
+| Collector Saturation Voltage | VCE(sat) | IC = [x]mA, IB = [x]mA | - | - | [Max] | V |
+
+**Transistortyp:** [NPN/PNP]
+
+---
+
+███ FÜR MOSFETs ███
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
+
+| Parameter | Symbol | Test Condition | Min | Typ | Max | Unit |
+|-----------|--------|----------------|-----|-----|-----|------|
+| Drain-Source Voltage | VDS | - | - | - | [Max] | V |
+| Gate-Source Voltage | VGS | - | - | - | [Max] | V |
+| Drain Current | ID | VGS = [x]V | - | - | [Max] | A |
+| Gate Threshold Voltage | VGS(th) | VDS = VGS, ID = [x]mA | [Min] | [~][Typ] | [Max] | V |
+| On-Resistance | RDS(on) | VGS = [x]V, ID = [x]A | - | [Typ] | [Max] | mΩ |
+| Input Capacitance | Ciss | VDS = [x]V, VGS = 0V | - | [~][Typ] | - | pF |
+| Total Gate Charge | Qg | VDS = [x]V, VGS = [x]V | - | [~][Typ] | - | nC |
+
+**MOSFET-Typ:** [N-Channel/P-Channel] [Enhancement/Depletion]
+
+---
+
+███ FÜR ICs (ALLGEMEIN) ███
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C, VCC = [x]V)*
+
+| Parameter | Symbol | Test Condition | Min | Typ | Max | Unit |
+|-----------|--------|----------------|-----|-----|-----|------|
+| Supply Voltage | VCC | - | [Min] | [Typ] | [Max] | V |
+| Supply Current | ICC | No Load | - | [~][Typ] | [Max] | mA |
+| Input Voltage | VIN | - | [Min] | - | [Max] | V |
+| Output Voltage | VOUT | IOUT = [x]mA | [Min] | [Typ] | [Max] | V |
+| [IC-spezifischer Parameter] | [Symbol] | [Bedingung] | [Min] | [Typ] | [Max] | [Unit] |
+
+---
+
+**FUNCTIONAL DESCRIPTION**
+
+[Präzise Beschreibung der Hauptfunktion in 3-5 Sätzen. Erkläre:
+- Was macht das Bauteil?
+- Wie funktioniert es prinzipiell?
+- Welche internen Blöcke/Funktionen sind typisch?]
+
+---
+
+**PIN CONFIGURATION**
+
+```
+[ASCII-Diagramm - verwende passende Vorlage:]
+
+DIP-8 Beispiel:
+        ┌───∪───┐
+    1 ──┤       ├── 8
+    2 ──┤       ├── 7
+    3 ──┤       ├── 6
+    4 ──┤       ├── 5
+        └───────┘
+
+TO-220 Beispiel:
+      ┌─────┐
+      │     │
+      │  ○  │
+      └┬─┬─┬┘
+       1 2 3
+
+SOT-23 Beispiel:
+       ┌───┐
+    1 ─┤   ├─ 3
+       └─┬─┘
+         2
+
+TO-92 Beispiel:
+       ___
+      /   \
+     | ○   |
+      \___/
+      │ │ │
+      1 2 3
+```
+
+---
+
+**PIN DESCRIPTION**
+
+| Pin | Symbol | I/O | Function |
+|-----|--------|-----|----------|
+| 1 | [Symbol] | [I/O/P] | [Detaillierte Funktion] |
+| 2 | [Symbol] | [I/O/P] | [Detaillierte Funktion] |
+| ... | ... | ... | ... |
+
+*I = Input, O = Output, P = Power*
+
+---
+
+**PACKAGE INFORMATION**
+
+| Parameter | Specification |
+|-----------|---------------|
+| Package Type | [JEDEC-Bezeichnung] |
+| Lead Count | [Anzahl] |
+| Body Size | [L × B × H mm] |
+| Lead Pitch | [mm] |
+| Mounting | [Through-hole/Surface-mount] |
+| Weight | [~][g] |
+| Material | [Plastik/Keramik/Metall] |
+| Moisture Sensitivity Level | [~]MSL [1-6] |
+
+---
+
+**CIRCUIT SYMBOL**
+
+```
+[Standardisiertes Schaltzeichen nach IEC 60617]
+
+Beispiele:
+
+Widerstand:        Kondensator:       Diode:
+    ┌───┐              │ │              ▲
+  ──┤   ├──          ──┤ ├──          ──┤──
+    └───┘              │ │              │
+
+NPN-Transistor:    N-MOSFET:          OpAmp:
+      C                D                 │╲
+      │                │                +│ ╲
+    ──┤              ──┤                 │  ╲
+      │╲               │ ║               │   ╲──
+    ──┤E             G─┤─║               │   ╱
+      │                │ ║              -│  ╱
+      ▼                S                 │ ╱
+                       │                 │╱
+```
+
+---
+
+**IDENTIFICATION FEATURES**
+
+**Erkannte Merkmale:**
+* Beschriftung: [Alle Zeilen]
+* Gehäuseform: [Beschreibung]
+* Farbcodierung: [Falls vorhanden]
+* Orientierungsmarkierung: [Kerbe/Punkt/Fase/Streifen]
+* Hersteller-Logo: [Beschreibung oder "Nicht erkannt"]
+* Sonstige Merkmale: [Kühlfahne, Befestigungsloch, etc.]
+
+---
+
+**APPLICATION NOTES**
+
+**Empfohlene Betriebsbedingungen:**
+* [Empfehlung 1]
+* [Empfehlung 2]
+
+**Handling-Hinweise:**
+* ESD-Empfindlichkeit: [Ja/Nein - HBM Class [x]]
+* Lötprofil: [Reflow/Wave - Max [x]°C für [x]s]
+* Feuchtigkeitsempfindlichkeit: [MSL Level]
+
+**Design-Tipps:**
+* [Tipp 1 - z.B. Entkoppelkondensatoren]
+* [Tipp 2 - z.B. Wärmeableitung]
+* [Tipp 3 - z.B. Layout-Empfehlungen]
+
+---
+
+**QUALITY & RELIABILITY**
+
+| Parameter | Specification |
+|-----------|---------------|
+| ESD Rating (HBM) | [~][x] kV |
+| ESD Rating (CDM) | [~][x] V |
+| Operating Life | [~][x] hours @ [Bedingungen] |
+| Storage Life | [~][x] years |
+| MTBF | [~][x] hours |
+| Qualification | [AEC-Q100/101/200 falls relevant] |
+
+---
+
+**ORDERING INFORMATION**
+
+| Part Number | Package | Marking | Temp Range | Packing | Description |
+|-------------|---------|---------|------------|---------|-------------|
+| [Vollständig] | [Package] | [Marking] | [Bereich] | [Tube/Reel/Tray] | [Beschreibung] |
+
+---
+
+**KONFIDENZ-ZUSAMMENFASSUNG**
+
+| Bereich | Konfidenz | Anmerkungen |
+|---------|-----------|-------------|
+| Identifikation | ■■■■□ | [Anmerkung] |
+| Elektrische Daten | ■■■□□ | [Anmerkung] |
+| Mechanische Daten | ■■■■■ | [Anmerkung] |
+| **Gesamt** | **■■■□□ (3/5)** | |
+
+**Empfehlungen zur Verbesserung:**
+* [Falls relevant: Bessere Bildqualität, andere Perspektive, etc.]
+
+---
+
+*Datenblatt generiert basierend auf visueller Analyse. Für kritische Anwendungen Originaldatenblatt des Herstellers verwenden.*
+
+═══════════════════════════════════════════════════════════════════════════════
+**FALLBACK-ANWEISUNGEN**
+═══════════════════════════════════════════════════════════════════════════════
+
+**Wenn Bauteil NICHT identifiziert werden kann:**
+
+1. Beschreibe alle erkennbaren physischen Merkmale:
+   - Gehäuseart und ungefähre Größe
+   - Anzahl Anschlüsse
+   - Farbe und Material
+   - Sichtbare Markierungen (auch unleserliche)
+
+2. Gib mögliche Bauteilkategorien an:
+   - "Mit 60% Wahrscheinlichkeit: [Kategorie 1]"
+   - "Mit 30% Wahrscheinlichkeit: [Kategorie 2]"
+
+3. Schlage vor, was helfen würde:
+   - "Foto aus anderem Winkel"
+   - "Nahaufnahme der Beschriftung"
+   - "Größenreferenz (Lineal, Münze)"
+
+**Wenn nur TEILWEISE identifizierbar:**
+
+- Fülle bekannte Felder aus
+- Markiere unbekannte: "UNBEKANNT - [Grund: z.B. 'Beschriftung nicht lesbar']"
+- Gib Wahrscheinlichkeiten: "Mit [x]% Wahrscheinlichkeit..."
+
+═══════════════════════════════════════════════════════════════════════════════
+**SPRACHREGELUNG**
+═══════════════════════════════════════════════════════════════════════════════
+
+- **Überschriften:** ENGLISCH (internationaler Standard für Datenblätter)
+- **Beschreibungen:** DEUTSCH
+- **Technische Begriffe:** ENGLISCH mit deutscher Erklärung bei Erstnennung
+- **Beispiel:** "ESD Rating: 2kV HBM (Human Body Model - Simulation menschlicher Entladung)"
+- **Einheiten:** SI-Einheiten (V, A, Ω, F, H, W, °C)
+
+═══════════════════════════════════════════════════════════════════════════════
+**QUALITÄTSCHECKLISTE (INTERN)**
+═══════════════════════════════════════════════════════════════════════════════
+
+Vor Ausgabe prüfen:
+□ Werte entsprechen E-Reihe (wo anwendbar)
+□ Alle Pflichtfelder ausgefüllt
+□ Konfidenz-Indikatoren gesetzt
+□ Einheiten konsistent
+□ Symbole nach Standard
+□ Pin-Diagramm vollständig
+□ Keine widersprüchlichen Angaben
+□ Plausibilitätsprüfung bestanden
+
+═══════════════════════════════════════════════════════════════════════════════
+**BEISPIEL-OUTPUT (Qualitätsreferenz)**
+═══════════════════════════════════════════════════════════════════════════════
+
+---
+
+**TECHNICAL DATASHEET: LM7805CT**
+*Generated by AI Mikroskop PartScan v3.0*
+
+---
+
+**BILDANALYSE-ERGEBNIS**
+
+| Prüfpunkt | Status | Anmerkung |
+|-----------|--------|-----------|
+| Bildqualität | ✓ | Gut, scharf |
+| Beschriftung lesbar | ✓ | Alle Zeilen klar erkennbar |
+| Bauteil identifiziert | ✓ | Hohe Konfidenz |
+
+**Erkannte Beschriftungen:**
+- Zeile 1: "LM7805CT"
+- Zeile 2: "TI 23B4"
+- Logo: Texas Instruments (TI)
+
+---
+
+**DEVICE DESCRIPTION**
+
+| Parameter | Wert | Konfidenz |
+|-----------|------|-----------|
+| Part Number | LM7805CT | ■■■■■ |
+| Device Category | Voltage Regulator IC | ■■■■■ |
+| Function | 5V Fixed Positive Voltage Regulator | ■■■■■ |
+| Package Type | TO-220-3 | ■■■■■ |
+| Technology | Bipolar | ■■■■□ |
+| Manufacturer | Texas Instruments | ■■■■■ |
+| Date Code | 2023 Woche 4 (23B4) | ■■■■■ |
+
+---
+
+**FEATURES**
+* Ausgangsspannung: 5V ±4%
+* Ausgangsstrom: bis zu 1.5A (mit Kühlkörper)
+* Integrierter Kurzschlussschutz
+* Integrierter Übertemperaturschutz
+* Keine externen Komponenten erforderlich
+
+---
+
+**APPLICATIONS**
+* Festspannungsversorgung für Digitalschaltungen
+* Mikrocontroller-Versorgung
+* Lokale On-Board-Regulierung
+* Laborstromversorgungen
+
+---
+
+**ABSOLUTE MAXIMUM RATINGS** *(TA = 25°C)*
+
+| Parameter | Symbol | Rating | Unit |
+|-----------|--------|--------|------|
+| Input Voltage | VIN | 35 | V |
+| Output Current | IOUT | 2.2 [~] | A |
+| Power Dissipation | PD | 15 [~] | W |
+| Operating Temperature | TOPR | -40 bis +125 | °C |
+| Storage Temperature | TSTG | -65 bis +150 | °C |
+| Junction Temperature | TJ | 150 | °C |
+
+---
+
+**ELECTRICAL CHARACTERISTICS** *(TA = 25°C, VIN = 10V, IOUT = 500mA)*
+
+| Parameter | Symbol | Test Condition | Min | Typ | Max | Unit |
+|-----------|--------|----------------|-----|-----|-----|------|
+| Output Voltage | VOUT | - | 4.8 | 5.0 | 5.2 | V |
+| Line Regulation | - | 7V ≤ VIN ≤ 25V | - | 4 | 100 | mV |
+| Load Regulation | - | 5mA ≤ IOUT ≤ 1.5A | - | 15 | 100 | mV |
+| Quiescent Current | IQ | - | - | 5 | 8 | mA |
+| Dropout Voltage | VDO | IOUT = 1A | - | 2.0 [~] | - | V |
+| Ripple Rejection | RR | f = 120Hz | 62 | 73 [~] | - | dB |
+
+---
+
+**PIN CONFIGURATION**
+
+```
+      ┌─────┐
+      │     │
+      │  ○  │  (Kühlfahne = GND)
+      └┬─┬─┬┘
+       │ │ │
+       1 2 3
+       │ │ └── OUTPUT (5V)
+       │ └──── GROUND
+       └────── INPUT (7-35V)
+```
+
+---
+
+**KONFIDENZ-ZUSAMMENFASSUNG**
+
+| Bereich | Konfidenz |
+|---------|-----------|
+| Identifikation | ■■■■■ |
+| Elektrische Daten | ■■■■□ |
+| Mechanische Daten | ■■■■■ |
+| **Gesamt** | **■■■■□ (4/5)** |
+
+---
+
+*Ende Beispiel*
