@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Version: 1.1.0 -->
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>KI Mikroskop PartScan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>KI Mikroskop PartScan</h1>
+  
+  <div class="camera-container">
+    <video id="video" autoplay playsinline></video>
+    <div id="countdown" class="countdown hidden">3</div>
+    <div id="flash" class="flash hidden"></div>
+    <div id="status" class="status">Kamera inaktiv</div>
+  </div>
+  
+  <div class="preview-container hidden" id="previewContainer">
+    <h2>Vorschau:</h2>
+    <canvas id="previewCanvas"></canvas>
+    <span>Bild und Prompt werden kopiert</span>
+  </div>
+  
+  <div class="button-container">
+    <select id="cameraSelect" class="hidden">
+      <option value="">Kamera wählen...</option>
+    </select>
+    <button id="btnStartCam" class="primary-btn hidden">Kamera starten</button>
+    <button id="btnScanChatGPT" class="action-btn gpt-btn" disabled>Scan ChatGPT</button>
+    <button id="btnScanClaude" class="action-btn claude-btn" disabled>Scan Claude</button>
+  </div>
+  
+  <div id="notification" class="notification hidden">
+    Bild und Text wurden in die Zwischenablage kopiert!
+  </div>
+  
+  <div class="info-text">
+    <p><strong>Hinweis:</strong> Die Kamera startet automatisch. Bei mehreren Kameras können Sie auswählen, welche verwendet werden soll.</p>
+    <p class="debug-info">Bei Problemen mit dem Kamerazugriff erscheint ein Knopf zum erneuten Versuch. Prüfen Sie bei anhaltenden Problemen die Browser-Einstellungen.</p>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

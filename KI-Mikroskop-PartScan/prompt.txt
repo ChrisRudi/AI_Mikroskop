@@ -1,0 +1,119 @@
+/* Version: 1.3.0 */
+/* Version: 2.0.0 - JEDEC JEP95 Format */
+**ELEKTRONIKBAUTEIL-ANALYSE PROMPT**
+
+**AUFGABE**
+Analysiere das bereitgestellte Bild eines elektronischen Bauteils und erstelle ein vollständiges technisches Datenblatt basierend auf den erkennbaren Merkmalen. Identifiziere das Bauteil, seine Funktionen und technischen Eigenschaften so genau wie möglich. Verwende JEDEC JEP95-konforme Formatierung für professionelle Darstellung.
+
+**AUSGABEFORMAT**
+
+---
+
+**TECHNICAL DATASHEET: [BAUTEILNAME]**
+
+**DEVICE DESCRIPTION**
+- **Part Number:** [Im Bild erkennbare Typnummer]
+- **Device Category:** [IC/Widerstand/Diode/Transistor/Kondensator/LED/Halbleiter/etc.]
+- **Function:** [Spezifische Funktion basierend auf Bauteiltyp]
+- **Package Type:** [Erkennbarer Gehäusetyp, z.B. DIP, SMD, TO-220, SOT-23, etc.]
+- **Technology:** [Relevant bei Halbleitern: Bipolar/CMOS/etc.]
+- **Manufacturer:** [Falls erkennbar]
+
+**FEATURES**
+* [Hauptmerkmal 1 des identifizierten Bauteils]
+* [Hauptmerkmal 2]
+* [Hauptmerkmal 3]
+
+**APPLICATIONS**
+* [Typische Anwendung 1 für diesen Bauteiltyp]
+* [Typische Anwendung 2 für diesen Bauteiltyp]
+* [Typische Anwendung 3]
+
+**ABSOLUTE MAXIMUM RATINGS** *(Ta = 25°C unless otherwise noted)*
+
+| Parameter | Symbol | Rating | Unit |
+|-----------|--------|--------|------|
+| Betriebsspannung | VOP | [Standard-/Typische Werte] | V |
+| Betriebstemperatur | TA | [Standard-/Typische Werte] | °C |
+| [Spezifische Parameter je Bauteiltyp] | [Symbol] | [Wert] | [Einheit] |
+| [Weitere Parameter] | [Symbol] | [Wert] | [Einheit] |
+
+**OPERATING CONDITIONS**
+
+| Parameter | Symbol | Min | Typ | Max | Unit |
+|-----------|--------|-----|-----|-----|------|
+| Operating Temperature | TA | [Min] | 25 | [Max] | °C |
+| [Weitere Betriebsbedingungen] | [Symbol] | [Min] | [Typ] | [Max] | [Unit] |
+
+**ELECTRICAL CHARACTERISTICS** *(Ta = 25°C unless otherwise noted)*
+
+| Parameter | Symbol | Test Conditions | Min | Typ | Max | Unit |
+|-----------|--------|----------------|-----|-----|-----|------|
+| [Parameter 1 basierend auf Bauteiltyp] | [Symbol] | [Testbedingung] | [Min] | [Typ] | [Max] | [Einheit] |
+| [Parameter 2 basierend auf Bauteiltyp] | [Symbol] | [Testbedingung] | [Min] | [Typ] | [Max] | [Einheit] |
+| [Parameter 3 basierend auf Bauteiltyp] | [Symbol] | [Testbedingung] | [Min] | [Typ] | [Max] | [Einheit] |
+
+**FUNCTIONAL DESCRIPTION**
+[Präzise Beschreibung der Hauptfunktion des identifizierten Bauteils in 2-3 Sätzen]
+
+**PIN CONFIGURATION**
+```
+[ASCII-Darstellung des Gehäuses mit Pin-Nummerierung]
+[Alle erkennbaren Pins durchnummeriert (im Uhrzeigersinn ab Markierung)]
+[Kerbe bei Pin 1 wenn ein IC]
+[Polaritätsmarkierungen (wo zutreffend)]
+```
+
+**PIN DESCRIPTION**
+[Bei ICs und Mehranschluss-Bauteilen: Pin-Nummer, Symbol und Funktion für jeden Pin]
+
+| Pin | Symbol | Function |
+|-----|--------|----------|
+| 1 | [Symbol] | [Funktion] |
+| 2 | [Symbol] | [Funktion] |
+| ... | ... | ... |
+
+**PACKAGE INFORMATION**
+- **Package Type:** [JEDEC-Bezeichnung falls zutreffend]
+- **Lead Count:** [Anzahl Anschlüsse]
+- **Package Dimensions:** [Soweit erkennbar]
+- **Mounting:** [Through-hole/Surface-mount]
+
+**CIRCUIT SYMBOL**
+```
+[Standardisiertes Schaltzeichen für den identifizierten Bauteiltyp]
+```
+
+**IDENTIFICATION FEATURES**
+* [Beschreibe alle im Bild erkennbaren Markierungen]
+* [Farbcodierung (bei passiven Bauteilen wie Widerständen)]
+* [Orientierungsmarkierungen (Kerben, Punkte, etc.)]
+* [Gehäuseform und -größe]
+* [Sonstige eindeutige Merkmale]
+
+**APPLICATION NOTES**
+* [Typische Handhabungs- oder Montageanweisungen für diesen Bauteiltyp]
+* [ESD-Empfindlichkeit, falls zutreffend]
+* [Besondere Vorsichtsmaßnahmen, falls zutreffend]
+* [Empfohlene Betriebspunkte]
+
+**QUALITY & RELIABILITY**
+- **ESD Rating:** [Falls relevant für Halbleiter]
+- **Operating Life:** [Typische Lebensdauer]
+- **Storage Conditions:** [Lagerungshinweise]
+
+**ORDERING INFORMATION**
+
+| Part Number | Package | Marking | Temp Range | Description |
+|-------------|---------|---------|------------|-------------|
+| [Vollständige Bezeichnung] | [Package] | [Marking] | [Bereich] | [Beschreibung] |
+
+---
+
+**ANALYSEANWEISUNGEN:**
+- Identifiziere Bauteiltyp anhand aller visuellen Merkmale
+- Verwende bauteilspezifische Parameter (Widerstand: Watt/Ohm, Kondensator: Farad/Volt, IC: Logikpegel etc.)
+- Beachte Gehäusestandards (JEDEC für Halbleiter, IEC für passive Bauteile)
+- Berücksichtige Farbcodes bei passiven Bauteilen
+- Stelle alle im Bild erkennbaren Informationen strukturiert dar
+- Passe Parametertypen an identifiziertes Bauteil an

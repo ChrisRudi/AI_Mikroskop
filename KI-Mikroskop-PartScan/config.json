@@ -1,0 +1,9 @@
+{
+  "chatUrl": "https://chatgpt.com",
+  "alternativeChatUrl": "https://chat.openai.com/",
+  "claudeUrl": "https://claude.ai/new",
+  "alternativeClaudeUrl": "https://claude.ai/chats",
+  "countdownTime": 3000,
+  "minVideoWidth": 640,
+  "minVideoHeight": 480
+}

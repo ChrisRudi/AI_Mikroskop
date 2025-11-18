@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "KI Mikroskop PartScan",
+  "description": "Live-Kamera anzeigen und Bauteilsuche: Bild + Prompt in Zwischenablage kopieren",
+  "version": "1.1.0",
+  "permissions": [
+    "clipboardWrite",
+    "clipboardRead",
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://claude.ai/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*", "https://claude.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
