@@ -1,32 +1,32 @@
-/* Version: 3.0.0 - Enhanced Quality Edition */
+/* Version: 3.0.1 - Enhanced Quality Edition (Chrome Compatible) */
 /* JEDEC JEP95 Format mit E-Reihen und Industrie-Standards */
 
 **ELEKTRONIKBAUTEIL-ANALYSE PROMPT**
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **AUFGABE**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 Analysiere das bereitgestellte Bild eines elektronischen Bauteils und erstelle ein vollständiges technisches Datenblatt. Verwende JEDEC JEP95-konforme Formatierung und beachte alle relevanten Industrie-Standards (E-Reihen, SMD-Codes, Farbcodes).
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **SCHRITT 1: BILDQUALITÄTS-PRÜFUNG** (ZUERST AUSFÜHREN)
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 Bevor du das Datenblatt erstellst, prüfe:
 
 | Kriterium | Status |
 |-----------|--------|
-| Bauteil vollständig sichtbar? | ✓/✗ |
-| Beschriftungen lesbar? | ✓/✗ |
-| Auflösung ausreichend? | ✓/✗ |
-| Beleuchtung gleichmäßig? | ✓/✗ |
+| Bauteil vollständig sichtbar? | [OK]/[FAIL] |
+| Beschriftungen lesbar? | [OK]/[FAIL] |
+| Auflösung ausreichend? | [OK]/[FAIL] |
+| Beleuchtung gleichmäßig? | [OK]/[FAIL] |
 
-**Bei unzureichender Qualität:** Beginne mit ⚠️ BILDQUALITÄTS-WARNUNG und beschreibe fehlende Informationen.
+**Bei unzureichender Qualität:** Beginne mit [!] BILDQUALITÄTS-WARNUNG und beschreibe fehlende Informationen.
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **SCHRITT 2: SYSTEMATISCHE INFORMATIONSEXTRAKTION**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **A) PRIMÄRE IDENTIFIKATION:**
 - Lese ALLE Beschriftungen exakt ab
@@ -49,9 +49,9 @@ Bevor du das Datenblatt erstellst, prüfe:
 - Sind Spezifikationen plausibel?
 - Stimmt Package mit Pinanzahl überein?
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **KONFIDENZ-SYSTEM**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 Markiere jeden Wert mit Konfidenz-Indikator:
 
@@ -62,11 +62,11 @@ Markiere jeden Wert mit Konfidenz-Indikator:
 | [?] | Unsicher/vermutet | [?]Samsung |
 | N/A | Nicht erkennbar | N/A |
 
-**Gesamtkonfidenz am Ende:** ■■■■□ (4/5) oder ■■□□□ (2/5)
+**Gesamtkonfidenz am Ende:** [####-] (4/5) oder [##---] (2/5)
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: E-REIHEN (IEC 60063)**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **E12 (±10% Toleranz) - Häufigste Werte:**
 1.0, 1.2, 1.5, 1.8, 2.2, 2.7, 3.3, 3.9, 4.7, 5.6, 6.8, 8.2
@@ -87,9 +87,9 @@ Markiere jeden Wert mit Konfidenz-Indikator:
 
 **Multiplikatoren:** ×1, ×10, ×100, ×1k, ×10k, ×100k, ×1M
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: WIDERSTANDS-FARBCODE (IEC 60062)**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 | Farbe | Ziffer | Multiplikator | Toleranz |
 |-------|--------|---------------|----------|
@@ -110,9 +110,9 @@ Markiere jeden Wert mit Konfidenz-Indikator:
 **5-Ring:** Ziffer-Ziffer-Ziffer-Multiplikator-Toleranz
 **6-Ring:** +Temperaturkoeffizient
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: SMD-WIDERSTANDS-CODES**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **3-stelliger Code (E24, ±5%):**
 - Erste zwei Ziffern = Wert
@@ -143,9 +143,9 @@ Markiere jeden Wert mit Konfidenz-Indikator:
 
 Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: KONDENSATOR-CODES**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **Keramik/Film (3-stellig in pF):**
 - Erste zwei Ziffern = Wert
@@ -199,9 +199,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 | Y5V | -30 bis +85°C | +22%/-82% | Pufferung |
 | Z5U | +10 bis +85°C | +22%/-56% | Kopplung |
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: SMD-GEHÄUSEGRÖSSEN (METRISCH/IMPERIAL)**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 | Imperial | Metrisch | L×B (mm) | Leistung (typ.) |
 |----------|----------|----------|-----------------|
@@ -215,9 +215,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 | 2010 | 5025 | 5.0×2.5 | 3/4W |
 | 2512 | 6332 | 6.3×3.2 | 1W |
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: HALBLEITER-GEHÄUSE (JEDEC/EIAJ)**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **Through-Hole:**
 | Bezeichnung | Pins | Anwendung |
@@ -256,9 +256,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 | D2-PAK (TO-263) | Leistungs-MOSFETs |
 | DPAK-3 | Spannungsregler |
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: TRANSISTOR-BEZEICHNUNGEN**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **Pro Electron (Europa):**
 - 1. Buchstabe: Material (A=Ge, B=Si, C=GaAs)
@@ -273,9 +273,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 - Format: 2S + Buchstabe + Nummer
 - Beispiele: 2SC1815 (NPN), 2SA1015 (PNP), 2SK30 (JFET)
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: IC-FAMILIEN**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **74xx Logik-Serien:**
 | Präfix | Technologie | VCC | Geschwindigkeit |
@@ -312,9 +312,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 | LM7805 | 5V 1A | 5V |
 | LM1117 | LDO | 1.8V, 2.5V, 3.3V, 5V |
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **REFERENZ: STANDARDISIERTE SYMBOLE**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **Spannungen:**
 | Symbol | Bedeutung |
@@ -363,9 +363,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 | gm | Steilheit (FET) |
 | RDS(on) | Einschaltwiderstand (MOSFET) |
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **AUSGABEFORMAT - TECHNISCHES DATENBLATT**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 ---
 
@@ -378,9 +378,9 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
 | Prüfpunkt | Status | Anmerkung |
 |-----------|--------|-----------|
-| Bildqualität | [✓/⚠️/✗] | [Beschreibung] |
-| Beschriftung lesbar | [✓/⚠️/✗] | [Details] |
-| Bauteil identifiziert | [✓/⚠️/✗] | [Konfidenz] |
+| Bildqualität | [OK/WARN/FAIL] | [Beschreibung] |
+| Beschriftung lesbar | [OK/WARN/FAIL] | [Details] |
+| Bauteil identifiziert | [OK/WARN/FAIL] | [Konfidenz] |
 
 **Erkannte Beschriftungen:**
 - Zeile 1: "[Exakter Text]"
@@ -394,7 +394,7 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
 | Parameter | Wert | Konfidenz |
 |-----------|------|-----------|
-| Part Number | [Typnummer] | [■■■■□] |
+| Part Number | [Typnummer] | [####-] |
 | Device Category | [IC/Widerstand/Diode/Transistor/Kondensator/LED/etc.] | |
 | Function | [Spezifische Funktion] | |
 | Package Type | [JEDEC-Bezeichnung, z.B. TO-220, SOIC-8] | |
@@ -432,7 +432,7 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
 **BAUTEILSPEZIFISCHE PARAMETER**
 
-███ FÜR WIDERSTÄNDE ███
+### FÜR WIDERSTÄNDE ###
 
 **ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
 
@@ -449,11 +449,11 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 - Farbcode: [Farbe1]-[Farbe2]-[Farbe3]-[Farbe4]
 - SMD-Code: [Code]
 - Berechnung: [Rechnung] = [Ergebnis]
-- E-Reihe: E[12/24/96] bestätigt ✓
+- E-Reihe: E[12/24/96] bestätigt [OK]
 
 ---
 
-███ FÜR KONDENSATOREN ███
+### FÜR KONDENSATOREN ###
 
 **ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
 
@@ -471,11 +471,11 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 **Wert-Dekodierung:**
 - Kapazitätscode: [Code] = [Wert]
 - Spannungscode: [Code] = [Spannung]
-- E-Reihe: E[12/24] bestätigt ✓
+- E-Reihe: E[12/24] bestätigt [OK]
 
 ---
 
-███ FÜR DIODEN ███
+### FÜR DIODEN ###
 
 **ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
 
@@ -495,7 +495,7 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
 ---
 
-███ FÜR TRANSISTOREN (BJT) ███
+### FÜR TRANSISTOREN (BJT) ###
 
 **ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
 
@@ -513,7 +513,7 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
 ---
 
-███ FÜR MOSFETs ███
+### FÜR MOSFETs ###
 
 **ELECTRICAL CHARACTERISTICS** *(TA = 25°C)*
 
@@ -531,7 +531,7 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 
 ---
 
-███ FÜR ICs (ALLGEMEIN) ███
+### FÜR ICs (ALLGEMEIN) ###
 
 **ELECTRICAL CHARACTERISTICS** *(TA = 25°C, VCC = [x]V)*
 
@@ -560,32 +560,32 @@ Beispiel: 01A = 100Ω, 68C = 49.9kΩ
 [ASCII-Diagramm - verwende passende Vorlage:]
 
 DIP-8 Beispiel:
-        ┌───∪───┐
-    1 ──┤       ├── 8
-    2 ──┤       ├── 7
-    3 ──┤       ├── 6
-    4 ──┤       ├── 5
-        └───────┘
+        +---U---+
+    1 --+       +-- 8
+    2 --+       +-- 7
+    3 --+       +-- 6
+    4 --+       +-- 5
+        +-------+
 
 TO-220 Beispiel:
-      ┌─────┐
-      │     │
-      │  ○  │
-      └┬─┬─┬┘
+      +-----+
+      |     |
+      |  O  |
+      +-+-+-+
        1 2 3
 
 SOT-23 Beispiel:
-       ┌───┐
-    1 ─┤   ├─ 3
-       └─┬─┘
+       +---+
+    1 -+   +- 3
+       +-+-+
          2
 
 TO-92 Beispiel:
        ___
       /   \
-     | ○   |
+     |  O  |
       \___/
-      │ │ │
+      | | |
       1 2 3
 ```
 
@@ -626,19 +626,19 @@ TO-92 Beispiel:
 Beispiele:
 
 Widerstand:        Kondensator:       Diode:
-    ┌───┐              │ │              ▲
-  ──┤   ├──          ──┤ ├──          ──┤──
-    └───┘              │ │              │
+    +---+              | |              ^
+  --+   +--          --+ +--          --+--
+    +---+              | |              |
 
 NPN-Transistor:    N-MOSFET:          OpAmp:
-      C                D                 │╲
-      │                │                +│ ╲
-    ──┤              ──┤                 │  ╲
-      │╲               │ ║               │   ╲──
-    ──┤E             G─┤─║               │   ╱
-      │                │ ║              -│  ╱
-      ▼                S                 │ ╱
-                       │                 │╱
+      C                D                 |\
+      |                |                +| \
+    --+              --+                 |  \
+      |\               | ||              |   \--
+    --+E             G-+-||              |   /
+      |                | ||             -|  /
+      V                S                 | /
+                       |                 |/
 ```
 
 ---
@@ -698,10 +698,10 @@ NPN-Transistor:    N-MOSFET:          OpAmp:
 
 | Bereich | Konfidenz | Anmerkungen |
 |---------|-----------|-------------|
-| Identifikation | ■■■■□ | [Anmerkung] |
-| Elektrische Daten | ■■■□□ | [Anmerkung] |
-| Mechanische Daten | ■■■■■ | [Anmerkung] |
-| **Gesamt** | **■■■□□ (3/5)** | |
+| Identifikation | [####-] | [Anmerkung] |
+| Elektrische Daten | [###--] | [Anmerkung] |
+| Mechanische Daten | [#####] | [Anmerkung] |
+| **Gesamt** | **[###--] (3/5)** | |
 
 **Empfehlungen zur Verbesserung:**
 * [Falls relevant: Bessere Bildqualität, andere Perspektive, etc.]
@@ -710,9 +710,9 @@ NPN-Transistor:    N-MOSFET:          OpAmp:
 
 *Datenblatt generiert basierend auf visueller Analyse. Für kritische Anwendungen Originaldatenblatt des Herstellers verwenden.*
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **FALLBACK-ANWEISUNGEN**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 **Wenn Bauteil NICHT identifiziert werden kann:**
 
@@ -737,9 +737,9 @@ NPN-Transistor:    N-MOSFET:          OpAmp:
 - Markiere unbekannte: "UNBEKANNT - [Grund: z.B. 'Beschriftung nicht lesbar']"
 - Gib Wahrscheinlichkeiten: "Mit [x]% Wahrscheinlichkeit..."
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **SPRACHREGELUNG**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 - **Überschriften:** ENGLISCH (internationaler Standard für Datenblätter)
 - **Beschreibungen:** DEUTSCH
@@ -747,23 +747,23 @@ NPN-Transistor:    N-MOSFET:          OpAmp:
 - **Beispiel:** "ESD Rating: 2kV HBM (Human Body Model - Simulation menschlicher Entladung)"
 - **Einheiten:** SI-Einheiten (V, A, Ω, F, H, W, °C)
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **QUALITÄTSCHECKLISTE (INTERN)**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 Vor Ausgabe prüfen:
-□ Werte entsprechen E-Reihe (wo anwendbar)
-□ Alle Pflichtfelder ausgefüllt
-□ Konfidenz-Indikatoren gesetzt
-□ Einheiten konsistent
-□ Symbole nach Standard
-□ Pin-Diagramm vollständig
-□ Keine widersprüchlichen Angaben
-□ Plausibilitätsprüfung bestanden
+[ ] Werte entsprechen E-Reihe (wo anwendbar)
+[ ] Alle Pflichtfelder ausgefüllt
+[ ] Konfidenz-Indikatoren gesetzt
+[ ] Einheiten konsistent
+[ ] Symbole nach Standard
+[ ] Pin-Diagramm vollständig
+[ ] Keine widersprüchlichen Angaben
+[ ] Plausibilitätsprüfung bestanden
 
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 **BEISPIEL-OUTPUT (Qualitätsreferenz)**
-═══════════════════════════════════════════════════════════════════════════════
+================================================================================
 
 ---
 
@@ -776,9 +776,9 @@ Vor Ausgabe prüfen:
 
 | Prüfpunkt | Status | Anmerkung |
 |-----------|--------|-----------|
-| Bildqualität | ✓ | Gut, scharf |
-| Beschriftung lesbar | ✓ | Alle Zeilen klar erkennbar |
-| Bauteil identifiziert | ✓ | Hohe Konfidenz |
+| Bildqualität | OK | Gut, scharf |
+| Beschriftung lesbar | OK | Alle Zeilen klar erkennbar |
+| Bauteil identifiziert | OK | Hohe Konfidenz |
 
 **Erkannte Beschriftungen:**
 - Zeile 1: "LM7805CT"
@@ -791,13 +791,13 @@ Vor Ausgabe prüfen:
 
 | Parameter | Wert | Konfidenz |
 |-----------|------|-----------|
-| Part Number | LM7805CT | ■■■■■ |
-| Device Category | Voltage Regulator IC | ■■■■■ |
-| Function | 5V Fixed Positive Voltage Regulator | ■■■■■ |
-| Package Type | TO-220-3 | ■■■■■ |
-| Technology | Bipolar | ■■■■□ |
-| Manufacturer | Texas Instruments | ■■■■■ |
-| Date Code | 2023 Woche 4 (23B4) | ■■■■■ |
+| Part Number | LM7805CT | [#####] |
+| Device Category | Voltage Regulator IC | [#####] |
+| Function | 5V Fixed Positive Voltage Regulator | [#####] |
+| Package Type | TO-220-3 | [#####] |
+| Technology | Bipolar | [####-] |
+| Manufacturer | Texas Instruments | [#####] |
+| Date Code | 2023 Woche 4 (23B4) | [#####] |
 
 ---
 
@@ -847,15 +847,15 @@ Vor Ausgabe prüfen:
 **PIN CONFIGURATION**
 
 ```
-      ┌─────┐
-      │     │
-      │  ○  │  (Kühlfahne = GND)
-      └┬─┬─┬┘
-       │ │ │
+      +-----+
+      |     |
+      |  O  |  (Kühlfahne = GND)
+      +-+-+-+
+       | | |
        1 2 3
-       │ │ └── OUTPUT (5V)
-       │ └──── GROUND
-       └────── INPUT (7-35V)
+       | | +-- OUTPUT (5V)
+       | +---- GROUND
+       +------ INPUT (7-35V)
 ```
 
 ---
@@ -864,10 +864,10 @@ Vor Ausgabe prüfen:
 
 | Bereich | Konfidenz |
 |---------|-----------|
-| Identifikation | ■■■■■ |
-| Elektrische Daten | ■■■■□ |
-| Mechanische Daten | ■■■■■ |
-| **Gesamt** | **■■■■□ (4/5)** |
+| Identifikation | [#####] |
+| Elektrische Daten | [####-] |
+| Mechanische Daten | [#####] |
+| **Gesamt** | **[####-] (4/5)** |
 
 ---
 
